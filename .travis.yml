@@ -29,18 +29,20 @@ install:
 script:
   - unset _JAVA_OPTIONS
   - mvn -Dsurefire.useFile=false -Dsurefire.parallel= test
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
-  on:
-    branch: master
 git:
   depth: 10000
 sudo: false
+services:
+  - docker
 cache:
   directories:
     - $HOME/.m2
+deploy:
+  provider: script
+  script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy"
+  skip_cleanup: true
+  on:
+    tags: true
 matrix:
   fast_finish: true
   include:
