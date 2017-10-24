@@ -32,14 +32,13 @@ script:
 git:
   depth: 10000
 sudo: false
-services:
-  - docker
 cache:
   directories:
     - $HOME/.m2
 deploy:
-  provider: script
-  script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn deploy"
+  provider: releases
+  api_key: 611de66f381972b3dc58bbccffe1780beef177f3
+  file: $HOME/calcite/core/target/calcite-core-1.15.0-SNAPSHOT.jar
   skip_cleanup: true
   on:
     tags: true

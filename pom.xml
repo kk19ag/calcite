@@ -1080,18 +1080,4 @@ limitations under the License.
       </build>
     </profile>
   </profiles>
-  <distributionManagement>
-    <repository>
-      <id>packagecloud-travis</id>
-      <url>
-        packagecloud+https://packagecloud.io/kk19ag/Calcite
-      </url>
-    </repository>
-    <snapshotRepository>
-      <id>packagecloud-travis</id>
-      <url>
-        packagecloud+https://packagecloud.io/kk19ag/Calcite
-      </url>
-    </snapshotRepository>
-  </distributionManagement>
 </project>
