@@ -32,6 +32,7 @@ public abstract class ConverterImpl extends SingleRel
     implements Converter {
   //~ Instance fields --------------------------------------------------------
 
+
   protected RelTraitSet inTraits;
   protected final RelTraitDef traitDef;
 
