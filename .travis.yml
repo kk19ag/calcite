@@ -19,32 +19,31 @@
 language: java
 branches:
   only:
-    - master
-    - new-master
-    - javadoc
-    - /^branch-.*$/
-    - /^[0-9]+-.*$/
+  - master
+  - new-master
+  - javadoc
+  - "/^branch-.*$/"
+  - "/^[0-9]+-.*$/"
 install:
-  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-  - unset _JAVA_OPTIONS
-  - mvn -Dsurefire.useFile=false -Dsurefire.parallel= test
+- unset _JAVA_OPTIONS
+- mvn -Dsurefire.useFile=false -Dsurefire.parallel= test
 git:
   depth: 10000
 sudo: false
 cache:
   directories:
-    - $HOME/.m2
-deploy:
-  provider: releases
-  api_key: 611de66f381972b3dc58bbccffe1780beef177f3
-  file: $HOME/calcite/core/target/calcite-core-1.15.0-SNAPSHOT.jar
-  skip_cleanup: true
-  on:
-    tags: true
+  - "$HOME/.m2"
 matrix:
   fast_finish: true
   include:
-    - jdk: openjdk7
-    - jdk: oraclejdk8
-# End .travis.yml
+  - jdk: openjdk7
+  - jdk: oraclejdk8
+deploy:
+  provider: releases
+  api_key:
+    secure: Oj4ayJWw9hYf4MVqaYDFhTUBSWOmFGkOcxjHb3r+OJQ5Lmxf/8uIrjQdot9fsQc05FGX8n4u7i2hxajtPzFW90kGhs4HNXMASnqkEn99jSA0606w08Idd9eyo57S/wD/yNbbUv8o5LR7rMbf/jfu4r+8AtN2880+smpPCUwpW6r18rHmt7G/GcOnK6kNya5S14nhwQ5k6CJlbGP+4KAi/FMg2xwltupAxUYARnD7oID8fznM8l7qar+RMzL97NVPc2iuzTKHEhTcLNqqdybHEQIwvbeEVx9DnY8gTUPRlQXAxVRSyG3rI3KZLMI4X3rnfaZof57ITXwO7A59tlilUWJ3EC4H/b2aMbZOOtDCeN90Da/M6pV7co6MG+feFaokAUVVeJa6E0cceo2kkU4l4CypFlEN6j6muSXz2AwFEsPBbgKykjYtj8xG3OxHZIfziDZipU58elhX6tcGSDIs/cHIro7EcmmiARhdU0RFwXd+Odpqf/bQ8ATgwr9R5JWTDioD8jVwquNvPIrhM2oMnqrrlMREKRjTbXltDfLjsJl6RlCBgD2/tAvdL02XXBmas1TXqSiFrSi/uSSRoWd/xof1DH1YRYVJym36GS4Bu1LxyavXJfDLQoyNH86O0gJgpgG4zUv/rkRMYHL1TfLOeVIAC8x3ZM7TnNRpuIcxEmU=
+  file: "$HOME/calcite/core/target/calcite-core-1.15.0-SNAPSHOT.jar"
+  on:
+    repo: kk19ag/calcite
