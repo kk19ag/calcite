@@ -22,8 +22,8 @@ branches:
   - master
   - new-master
   - javadoc
-  - "/^branch-.*$/"
-  - "/^[0-9]+-.*$/"
+  - /^branch-.*$/
+  - /^[0-9]+-.*$/
 install:
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
