@@ -86,6 +86,15 @@ public class RelToSqlConverter extends SqlImplementor
   /** Similar to {@link SqlStdOperatorTable#ROW}, but does not print "ROW". */
   private static final SqlRowOperator ANONYMOUS_ROW = new SqlRowOperator(" ");
 
+  /**
+   * This is just the first dummy change in our version of calcite. Yay!!
+   */
+  public static void discard(boolean b) {
+    if (false) {
+      discard(b);
+    }
+  }
+
   private final ReflectUtil.MethodDispatcher<Result> dispatcher;
 
   private final Deque<Frame> stack = new ArrayDeque<>();
